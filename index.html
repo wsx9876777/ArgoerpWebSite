@@ -116,39 +116,40 @@
         </div>
     </div>
     <script>
-        let $W = $(window).width();
-        let $H = $(window).height();
-        let itemWP_Height = $('.itemWP').height();
-        
-        $('.six .item img').height((itemWP_Height/2 )* 0.7);
-        
-        let content1_Height = $('.container .flex:nth-child(1) .content').height();
-        let content2_Height = $('.container .flex:nth-child(2) .content').height();
-        let content3_Height = $('.container .flex:nth-child(3) .content').height();
-        $('.container .flex:nth-child(1) .icon').height(content1_Height +5);
-        $('.container .flex:nth-child(2) .icon').height(content2_Height +5);
-        $('.container .flex:nth-child(3) .icon').height(content3_Height +5);
-        
-        $('.container .flex .content a').hover(function () {
-            $(this).children('.text').find('span.disappear').hide();
-            $(this).children('.text').find('.btn').css({'display':'block'});
-        }, function () {
-            $(this).children('.text').find('.btn').hide();
-            $(this).children('.text').find('span.disappear').show();
-        });
+     $( document ).ready(function() {
+            let $W = $(window).width();
+            let $H = $(window).height();
 
-        if($W <= 1055){
-            let w =$('.container .flex .content').width();
-            $('.container .flex .icon').width(w);
-            $('.container .flex .icon').height(50);
-        }
-        if($W <= 850){
-           $('.container .flex:nth-child(1) .content').append('<a></a>');
-           $('.container .flex:nth-child(2) .content').append('<a></a>');
-        }
-        if($W <= 320){
-           $('.container .flex:nth-child(3) .content').append('<a></a>');
-       }
+            let content1_Height = $('.container .flex:nth-child(1) .content').height();
+            let content2_Height = $('.container .flex:nth-child(2) .content').height();
+            let content3_Height = $('.container .flex:nth-child(3) .content').height();
+            $('.container .flex:nth-child(1) .icon').height(content1_Height +5);
+            $('.container .flex:nth-child(2) .icon').height(content2_Height +5);
+            $('.container .flex:nth-child(3) .icon').height(content3_Height +5);
+
+            $('.container .flex .content a').hover(function () {
+                $(this).children('.text').find('span.disappear').hide();
+                $(this).children('.text').find('.btn').css({'display':'block'});
+            }, function () {
+                $(this).children('.text').find('.btn').hide();
+                $(this).children('.text').find('span.disappear').show();
+            });
+            $(window).resize(function(){
+                if($W <= 1055){
+                let w =$('.container .flex .content').width();
+                    $('.container .flex .icon').width(w);
+                    $('.container .flex .icon').height(50);
+                }
+                if($W <= 850){
+                   $('.container .flex:nth-child(1) .content').append('<a></a>');
+                   $('.container .flex:nth-child(2) .content').append('<a></a>');
+                }
+                if($W <= 320){
+                   $('.container .flex:nth-child(3) .content').append('<a></a>');
+               }
+            });
+            
+        });
     </script>
 </body>
 

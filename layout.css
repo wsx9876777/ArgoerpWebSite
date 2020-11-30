@@ -55,6 +55,7 @@
     }
     .six .item img{
         display:block;
+        height: 240px;
         margin:0 auto;
     }
     .down{
@@ -136,6 +137,7 @@
     @media(max-width:950px) {
         .container .flex .content a img{height:55px;}
         .container .flex .content,.container .flex .icon{padding:30px;}
+        .six .item img{height:200px;}
     }
     @media(max-width:850px){
         .container .flex .content{flex-wrap: wrap;justify-content: flex-start;}
