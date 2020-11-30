@@ -64,6 +64,7 @@
                     <a target="_blank" href=" "> <img src="img/receipt.png" alt=""> <span class="text">
                             <span>Electronic Invoice</span> <span class="disappear">電子發票上傳</span> </span>
                     </a>
+                    <a href="" class="hide"></a>
                 </div>
             </div>
             <div class="flex">
@@ -89,6 +90,7 @@
                     <a target="_blank" href=""> <img src="img/crm.png" alt=""> <span class="text">
                             <span>CRM</span> <span class="disappear">顧客管理</span> <span class="btn">more</span> </span>
                     </a>
+                    <a href="" class="hide"></a>
                 </div>
                 <div class="icon"> <img src="img/phone.png" alt="">
                     <p>行動應用</p>
@@ -152,9 +154,17 @@
             let content1_Height = $('.container .flex:nth-child(1) .content').height();
             let content2_Height = $('.container .flex:nth-child(2) .content').height();
             let content3_Height = $('.container .flex:nth-child(3) .content').height();
-            $('.container .flex:nth-child(1) .icon').height(content1_Height + 5);
-            $('.container .flex:nth-child(2) .icon').height(content2_Height + 5);
-            $('.container .flex:nth-child(3) .icon').height(content3_Height + 5);
+            if ($W <= 1055) {
+                let w = $('.container .flex .content').width();
+                $('.container .flex .icon').width(w);
+                $('.container .flex .icon').height(50);
+            } else {
+                $('.container .flex .icon').width('10%');
+                $('.container .flex:nth-child(1) .icon').height(content1_Height + 5);
+                $('.container .flex:nth-child(2) .icon').height(content2_Height + 5);
+                $('.container .flex:nth-child(3) .icon').height(content3_Height + 5);
+            }
+
 
             $('.container .flex .content a').hover(function () {
                 $(this).children('.text').find('span.disappear').hide();
@@ -166,17 +176,21 @@
                 $(this).children('.text').find('span.disappear').show();
             });
             $(window).resize(function () {
+                let $W = $(window).width();
+                let $H = $(window).height();
+
+                let content1_Height = $('.container .flex:nth-child(1) .content').height();
+                let content2_Height = $('.container .flex:nth-child(2) .content').height();
+                let content3_Height = $('.container .flex:nth-child(3) .content').height();
                 if ($W <= 1055) {
                     let w = $('.container .flex .content').width();
                     $('.container .flex .icon').width(w);
                     $('.container .flex .icon').height(50);
-                }
-                if ($W <= 850) {
-                    $('.container .flex:nth-child(1) .content').append('<a></a>');
-                    $('.container .flex:nth-child(2) .content').append('<a></a>');
-                }
-                if ($W <= 320) {
-                    $('.container .flex:nth-child(3) .content').append('<a></a>');
+                } else {
+                    $('.container .flex .icon').width('10%');
+                    $('.container .flex:nth-child(1) .icon').height(content1_Height + 5);
+                    $('.container .flex:nth-child(2) .icon').height(content2_Height + 5);
+                    $('.container .flex:nth-child(3) .icon').height(content3_Height + 5);
                 }
             });
 

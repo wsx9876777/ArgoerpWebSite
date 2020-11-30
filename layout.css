@@ -103,6 +103,12 @@ body {
     font-size: 1.2rem;
 }
 
+.container .flex:nth-child(1) .content a.hide,
+.container .flex:nth-child(2) .content a.hide {
+    display: none;
+}
+
+
 .container .flex:nth-child(1) .icon,
 .container .flex:nth-child(1) .content a .text .btn {
     background-color: #FFBB00;
@@ -257,6 +263,8 @@ body {
     }
 
     .container .flex .icon {
+        width: 100%;
+        height: 50px;
         margin-left: 0;
         margin-right: 0;
         flex-direction: row;
@@ -302,6 +310,12 @@ body {
 }
 
 @media(max-width:850px) {
+
+    .container .flex:nth-child(1) .content a.hide,
+    .container .flex:nth-child(2) .content a.hide {
+        display: block;
+    }
+
     .container .flex .content {
         flex-wrap: wrap;
         justify-content: flex-start;
